@@ -1,0 +1,118 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TikTok 18+ | Преленд</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f9f9f9;
+      color: #333;
+    }
+    .container {
+      max-width: 600px;
+      margin: 50px auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    h1 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+    p {
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+    button {
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .btn-main {
+      background: linear-gradient(to right, #ff4d6d, #ff6f61);
+      color: #fff;
+    }
+    .btn-secondary {
+      background: #ddd;
+      color: #333;
+    }
+    #ageGate {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+    #ageGate .box {
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      text-align: center;
+      max-width: 400px;
+    }
+  </style>
+</head>
+<body>
+  <div id="ageGate">
+    <div class="box">
+      <h2>Подтверждение возраста</h2>
+      <p>Этот сайт содержит материалы только для взрослых (18+).</p>
+      <div style="margin-top:20px;">
+        <button class="btn-secondary" onclick="decline()">Мне нет 18</button>
+        <button class="btn-main" onclick="verifyAge()">Мне 18+</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <h1>TikTok 18+ (с цензурой)</h1>
+    <p>Эксклюзивные короткие клипы. Только для взрослых пользователей. Никакой жесткой порнографии, только эстетика и развлечение.</p>
+    <button class="btn-main" onclick="goTelegram()">Перейти в Telegram</button>
+    <p style="margin-top:15px; font-size:12px; color:#777;">Нажимая кнопку, вы подтверждаете, что вам 18+.</p>
+  </div>
+
+  <script>
+    // Telegram-ссылка
+    const telegramLink = "https://t.me/TikTokPremium19";
+
+    // Счётчик событий
+    let stats = {
+      visits: 0,
+      ageVerified: 0,
+      ctaClicks: 0
+    };
+
+    // Засчитаем визит
+    stats.visits++;
+    console.log("🔹 Событие: Визит на страницу | Всего: " + stats.visits);
+
+    function verifyAge() {
+      document.getElementById('ageGate').style.display = 'none';
+      stats.ageVerified++;
+      console.log("🔹 Событие: Подтверждение возраста (18+) | Всего: " + stats.ageVerified);
+    }
+
+    function decline() {
+      alert("Доступ запрещён: вам нет 18 лет.");
+      window.location.href = "https://www.google.com";
+    }
+
+    function goTelegram() {
+      stats.ctaClicks++;
+      console.log("🔹 Событие: Клик по CTA (Перейти в Telegram) | Всего: " + stats.ctaClicks);
+      window.open(telegramLink, "_blank");
+    }
+  </script>
+</body>
+</html>
